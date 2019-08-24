@@ -5,6 +5,10 @@ spring:
             url: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
             username:
             password:
+    mvc:
+        view:
+            suffix: .jsp
+            prefix: /
     jpa:
         database-platform: org.hibernate.dialect.H2Dialect
         database: H2
