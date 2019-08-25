@@ -20,17 +20,36 @@ public class AgendamentoDto {
 
     private StatusAgendamento status;
 
-    public AgendamentoDto(AgendamentoKey agendamentoKey, LocalDateTime reserva, String entidade, LocalDateTime solicitacao, StatusAgendamento status) {
+    private String justificativa;
+
+    public AgendamentoDto(AgendamentoKey agendamentoKey, LocalDateTime reserva, String entidade, LocalDateTime solicitacao, StatusAgendamento status, String justificativa) {
         this.agendamentoKey = agendamentoKey;
         this.reserva = reserva;
         this.entidade = entidade;
         this.solicitacao = solicitacao;
         this.status = status;
+        this.justificativa = justificativa;
+    }
+
+    public AgendamentoDto(Agendamento agendamento) {
+
+        this.agendamentoKey = agendamento.getAgendamentoKey();
+        this.reserva = agendamento.getReserva();
+        this.entidade = agendamento.getEntidade();
+        this.solicitacao = agendamento.getSolicitacao();
+        this.status = agendamento.getStatus();
+        this.justificativa = agendamento.getJustificativa();
+
     }
 
     public static List<AgendamentoDto> converter(List<Agendamento> agendamentos) {
         return agendamentos.stream().map((Agendamento a) ->
-                new AgendamentoDto(a.getAgendamentoKey(),a.getReserva(),a.getEntidade(),a.getSolicitacao(),a.getStatus())).collect(Collectors.toList());
+                new AgendamentoDto(a.getAgendamentoKey(),
+                        a.getReserva(),a.getEntidade(),a.getSolicitacao(),a.getStatus(), a.getJustificativa())).collect(Collectors.toList());
+    }
+
+    public String getJustificativa() {
+        return justificativa;
     }
 
     public AgendamentoKey getAgendamentoKey() {

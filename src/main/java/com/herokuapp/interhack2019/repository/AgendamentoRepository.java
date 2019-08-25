@@ -11,9 +11,10 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 
     List<Agendamento> findByAgendamentoKey_IdE(Integer id);
 
-    List<Agendamento> findByAgendamentoKey_IdEAndReserva(Integer id, LocalDateTime reserva);
+    List<Agendamento> findByAgendamentoKey_IdAndReserva(Integer id, LocalDateTime reserva);
 
     List<Agendamento> findByAgendamentoKey_IdM(Integer id);
 
-    List<Agendamento> findByAgendamentoKey_IdMAndAgendamentoKey_IdE(Integer id, Integer id2);
+    List<Agendamento> findByAgendamentoKey_IdM_IdAndAgendamentoKey_IdE_Id(Integer id, Integer id2);
+
 }

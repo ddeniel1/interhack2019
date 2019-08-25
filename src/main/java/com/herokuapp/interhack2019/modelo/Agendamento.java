@@ -26,19 +26,31 @@ public class Agendamento implements Serializable {
     @Column(name = "STATUS")
     private StatusAgendamento status;
 
+    @Column(name = "JUSTIFICATIVA")
+    private String justificativa;
+
     public Agendamento() {
     }
 
-    public Agendamento(AgendamentoKey agendamentoKey, LocalDateTime reserva, String entidade, LocalDateTime solicitacao, StatusAgendamento status) {
+    public Agendamento(AgendamentoKey agendamentoKey, LocalDateTime reserva, String entidade, LocalDateTime solicitacao, StatusAgendamento status, String justificativa) {
         this.agendamentoKey = agendamentoKey;
         this.reserva = reserva;
         this.entidade = entidade;
         this.solicitacao = solicitacao;
         this.status = status;
+        this.justificativa = justificativa;
     }
 
     public Agendamento(Agendamento agendamento) {
 
+    }
+
+    public String getJustificativa() {
+        return justificativa;
+    }
+
+    public void setJustificativa(String justificativa) {
+        this.justificativa = justificativa;
     }
 
     public AgendamentoKey getAgendamentoKey() {
