@@ -18,6 +18,9 @@ public class AgendamentoKey implements Serializable {
     @ManyToOne
     private Modalidade idM;
 
+    public AgendamentoKey() {
+    }
+
     public AgendamentoKey(Espaco id_e, Modalidade id_m) {
         this.idE = id_e;
         this.idM = id_m;

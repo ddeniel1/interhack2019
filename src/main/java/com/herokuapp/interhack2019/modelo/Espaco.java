@@ -29,6 +29,11 @@ public class Espaco implements Serializable {
         this.nome = espacoModalidade.getEspacoModalidadeKey().getIdE().getNome();
     }
 
+    public Espaco(Espaco espaco) {
+        this.id = espaco.getId();
+        this.nome = espaco.getNome();
+    }
+
     public int getId() {
         return id;
     }
