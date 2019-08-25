@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
+@SequenceGenerator(name = "AGENDAMENTO_SEQ", sequenceName = "SEQ_AGE", allocationSize = 1)
 public class AgendamentoKey implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AGENDAMENTO_SEQ")
