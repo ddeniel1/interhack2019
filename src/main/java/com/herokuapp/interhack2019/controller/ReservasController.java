@@ -1,8 +1,8 @@
 package com.herokuapp.interhack2019.controller;
 
+import com.herokuapp.interhack2019.controller.dto.AgendamentoDto;
 import com.herokuapp.interhack2019.controller.dto.EspacoDto;
 import com.herokuapp.interhack2019.controller.dto.ModalidadeDto;
-import com.herokuapp.interhack2019.controller.form.EspacoForm;
 import com.herokuapp.interhack2019.modelo.Espaco;
 import com.herokuapp.interhack2019.modelo.Modalidade;
 import com.herokuapp.interhack2019.repository.*;
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
-import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,16 +39,14 @@ public class ReservasController {
 		System.out.println(id);
 		return EspacoDto.converter(emRepository.findByEspacoModalidadeKey_IdM_Id(id).stream().map(Espaco::new).collect(Collectors.toList()));
 	}
-	
-//	@GetMapping("/{id}")
-//	public ResponseEntity<EstoqueDto> detalhar(@PathVariable Long id) {
-//		Optional<ProductManagement> estoque = productManagementRepository.findById(id);
-//		if (estoque.isPresent()) {
-//			return ResponseEntity.ok(new EstoqueDto(estoque.get()));
-//		}
+	@GetMapping("/listarHorarios/{id}")
+	@Transactional
+	public List<AgendamentoDto> listarHorarios(@PathVariable Integer id, LocalDateTime data) {
+		System.out.println(id);
+		return AgendamentoDto.converter(agendamentoRepository.findByAgendamentoKey_IdEAndReserva(id,data));
+	}
+
 //
-//		return ResponseEntity.notFound().build();
-//	}
 //
 //
 //	@DeleteMapping("/{id}")

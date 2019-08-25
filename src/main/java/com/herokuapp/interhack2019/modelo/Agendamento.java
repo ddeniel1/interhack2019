@@ -1,5 +1,7 @@
 package com.herokuapp.interhack2019.modelo;
 
+import com.herokuapp.interhack2019.modelo.keys.AgendamentoKey;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -33,6 +35,10 @@ public class Agendamento implements Serializable {
         this.entidade = entidade;
         this.solicitacao = solicitacao;
         this.status = status;
+    }
+
+    public Agendamento(Agendamento agendamento) {
+
     }
 
     public AgendamentoKey getAgendamentoKey() {
