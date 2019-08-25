@@ -13,7 +13,7 @@ public class MailController {
     @Autowired
     private JavaMailSender mailSender;
 
-    @GetMapping
+    @GetMapping("/{email}")
     public String sendMail(@PathVariable String email) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject("Solicitação de Reserva");
