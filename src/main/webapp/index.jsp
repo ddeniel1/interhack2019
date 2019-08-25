@@ -18,7 +18,8 @@
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
-
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/lib.js"></script>
 <body>
 <nav class="orange lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">USPortivo</a>
@@ -38,18 +39,16 @@
         <form class="">
             <div class="row">
                 <div class="col s12 m6 ">
-                    <select >
+                    <select onchange="checkFunction()" id = 'mod'>
                         <option value="" disabled selected>Escolha a modalidade</option>
-                        <option value="1">Futsal</option>
-                        <option value="2">Natação</option>
-                        <option value="3">Basquete</option>
+
                     </select>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col s12 m6">
-                    <input id="data" type="text" class="datepicker">
+                    <input  id="data" placeholder="Selecione a data" type="text" class="datepicker">
                     <Spam>Data</Spam>
                 </div>
             </div>
@@ -58,9 +57,9 @@
 
             </div>
             <div class="row">
-                <ul class="collapsible">
-                    <li>
-                        <div class="collapsible-header">
+                <ul class="collapsible" id="lugar">
+                    <li >
+                     <div class="collapsible-header">
                             <i class="material-icons">place</i>
                             Quadra Poliesportiva 1
                         </div>
@@ -93,7 +92,7 @@
 
 </div>
 
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 <script src="js/materialize.js"></script>
 <script src="js/lib.js"></script>
 <script>
@@ -105,4 +104,5 @@
 <script>
     M.AutoInit();
 </script>
+
 </body>
