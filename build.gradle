@@ -32,5 +32,5 @@ dependencies {
 	implementation 'com.h2database:h2'
 	compile('javax.servlet:jstl')
 	compile("org.apache.tomcat.embed:tomcat-embed-jasper")
-
+	compile('org.springframework.boot:spring-boot-starter-mail')
 }

@@ -1,4 +1,15 @@
 spring:
+    mail:
+        host: smtp.gmail.com
+        port: 587
+        username: cepeusphack@gmail.com
+        password: HACK2019
+        properties.mail.smtp.auth: true
+        properties.mail.smtp.starttls.enable: true
+        properties.mail.smtp.starttls.required: true
+        properties.mail.smtp.ssl.enable: false
+        test-connection: true
+
     profiles:
         active: dev
     datasource:
@@ -20,3 +31,4 @@ spring:
         properties:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+
