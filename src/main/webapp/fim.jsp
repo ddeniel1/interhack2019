@@ -67,7 +67,7 @@
     <div class="row">
         <div class="row"></div>
         <div class="divider"></div>
-        <form action="\" class="col s12">
+        <form action="#" class="col s12">
             <div class="row">
                 <div class="input-field col s12">
                     <textarea id="textarea1" class="materialize-textarea"></textarea>
@@ -84,15 +84,15 @@
                     <label for="nome_entidade3">Entidade</label>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="primeessaporra">
                 <div class="input-field col s6 m6">
-                    <input placeholder="Email para contato" id="nome_entidade2" type="text" class="validate">
-                    <label for="email">Email</label>
+                    <input placeholder="Email para contato" id="imeiu" type="text" class="validate email">
+                    <label id="email">Email</label>
                     <span class="darken-4 red-text">(A confirmação de reserva da quadra será enviada por esse Email)</span>
                 </div>
             </div>
             <div class="row">
-                <button class="pull-s7 btn waves-effect waves-light" type="submit" name="action" onclick="aviso()">Submeter
+                <button class="pull-s7 btn waves-effect waves-light"   onclick="aviso()">Submeter
                     <i class="material-icons right">send</i>
                 </button>
             </div>
@@ -107,7 +107,8 @@
 <script>M.AutoInit();</script>
 <script>
     function aviso() {
-        alert("Sua solicitação de reserva será processada!");
+        $.getJSON("fim/email-send/danielfilho@usp.br");
+        alert("Sua solicitação de reserva será processada! ");
     }
 </script>
 </body>

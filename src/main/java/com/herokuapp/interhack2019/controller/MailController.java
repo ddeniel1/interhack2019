@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/email-send", method = RequestMethod.GET)
+@RequestMapping(path = "/fim/email-send", method = RequestMethod.GET)
 public class MailController {
     @Autowired
     private JavaMailSender mailSender;
