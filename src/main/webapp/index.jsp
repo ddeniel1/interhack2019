@@ -36,10 +36,10 @@
 <div class="container">
     <h1 class="light-blue-text ">Reservas CEPE</h1>
 
-        <form class="">
+        <form class="" action="/fim" method="post">
             <div class="row">
                 <div class="col s12 m6 ">
-                    <select onchange="checkFunction()" id = 'mod'>
+                    <select onchange="checkFunction(); load()" id = 'mod'>
                         <option value="" disabled selected>Escolha a modalidade</option>
 
                     </select>
@@ -48,7 +48,7 @@
 
             <div class="row">
                 <div class="col s12 m6">
-                    <input  id="data" placeholder="Selecione a data" type="text" class="datepicker">
+                    <input  id="data" onchange="" placeholder="Selecione a data" type="text" class="datepicker">
                     <Spam>Data</Spam>
                 </div>
             </div>
