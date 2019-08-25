@@ -10,10 +10,11 @@ public class Modalidade implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MODALIDADE_SEQ")
-    private int id;
+    private Integer id;
 
     @Column(name = "NOME")
     private String nome;
+
 
     public Modalidade() {
     }
