@@ -10,7 +10,7 @@ public class Espaco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ESP_SEQ")
-    private int id;
+    private Integer id;
 
     @Column(name = "NOME")
     private String nome;
@@ -18,8 +18,15 @@ public class Espaco implements Serializable {
     public Espaco() {
     }
 
+
+
     public Espaco(String nome) {
         this.nome = nome;
+    }
+
+    public Espaco(EspacoModalidade espacoModalidade) {
+        this.id = espacoModalidade.getEspacoModalidadeKey().getIdE().getId();
+        this.nome = espacoModalidade.getEspacoModalidadeKey().getIdE().getNome();
     }
 
     public int getId() {

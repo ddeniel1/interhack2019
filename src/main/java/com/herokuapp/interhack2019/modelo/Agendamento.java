@@ -1,7 +1,5 @@
 package com.herokuapp.interhack2019.modelo;
 
-import org.apache.tomcat.jni.Local;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -11,17 +9,8 @@ import java.time.LocalDateTime;
 @SequenceGenerator(name = "AGENDAMENTO_SEQ", sequenceName = "SEQ_AGE", allocationSize = 1)
 public class Agendamento implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AGENDAMENTO_SEQ")
-    private int id;
-
-    @Id
-    @ManyToOne
-    private Espaco id_e;
-
-    @Id
-    @ManyToOne
-    private Modalidade id_m;
+    @EmbeddedId
+    private AgendamentoKey agendamentoKey;
 
     @Column(name = "DATA_RESERVA")
     private LocalDateTime reserva;
@@ -33,30 +22,33 @@ public class Agendamento implements Serializable {
     private LocalDateTime solicitacao;
 
     @Column(name = "STATUS")
-    private int status;
+    private StatusAgendamento status;
 
     public Agendamento() {
     }
 
-    public Agendamento(Espaco id_e, Modalidade id_m, LocalDateTime reserva,
-                       String entidade, LocalDateTime solicitacao) {
-        this.id_e = id_e;
-        this.id_m = id_m;
+    public Agendamento(AgendamentoKey agendamentoKey, LocalDateTime reserva, String entidade, LocalDateTime solicitacao, StatusAgendamento status) {
+        this.agendamentoKey = agendamentoKey;
         this.reserva = reserva;
         this.entidade = entidade;
         this.solicitacao = solicitacao;
+        this.status = status;
     }
 
-    public int getId() {
-        return id;
+    public AgendamentoKey getAgendamentoKey() {
+        return agendamentoKey;
     }
 
-    public Espaco getId_e() {
-        return id_e;
+    public void setAgendamentoKey(AgendamentoKey agendamentoKey) {
+        this.agendamentoKey = agendamentoKey;
     }
 
-    public Modalidade getId_m() {
-        return id_m;
+    public StatusAgendamento getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusAgendamento status) {
+        this.status = status;
     }
 
     public LocalDateTime getReserva() {
@@ -71,18 +63,6 @@ public class Agendamento implements Serializable {
         return solicitacao;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setId_e(Espaco id_e) {
-        this.id_e = id_e;
-    }
-
-    public void setId_m(Modalidade id_m) {
-        this.id_m = id_m;
-    }
-
     public void setReserva(LocalDateTime reserva) {
         this.reserva = reserva;
     }
@@ -93,9 +73,5 @@ public class Agendamento implements Serializable {
 
     public void setSolicitacao(LocalDateTime solicitacao) {
         this.solicitacao = solicitacao;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 }
