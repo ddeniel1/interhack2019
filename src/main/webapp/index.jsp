@@ -58,30 +58,6 @@
             </div>
             <div class="row">
                 <ul class="collapsible" id="lugar">
-                    <li >
-                     <div class="collapsible-header">
-                            <i class="material-icons">place</i>
-                            Quadra Poliesportiva 1
-                        </div>
-                        <div class="collapsible-body">
-                            <p>
-                                <label>
-                                    <input type="checkbox" />
-                                    <span>09:00 a 10:00</span>
-                                </label>
-                            </p>
-                            <p>
-                                <label>
-                                    <input type="checkbox" />
-                                    <span>10:00 a 11:00</span>
-                                </label>
-                            </p>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Finalizar Reserva
-                                <i class="material-icons right">send</i>
-                            </button>
-
-                        </div>
-                    </li>
                 </ul>
             </div>
         </form>
