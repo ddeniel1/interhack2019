@@ -5,20 +5,30 @@ import com.herokuapp.interhack2019.modelo.Espaco;
 import com.herokuapp.interhack2019.modelo.Modalidade;
 import com.herokuapp.interhack2019.modelo.StatusAgendamento;
 import com.herokuapp.interhack2019.modelo.keys.AgendamentoKey;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
+@Validated
 public class AgendamentoForm {
 
+    @NotNull
     private Integer idE;
 
+    @NotNull
     private Integer idM;
 
+    @NotEmpty @NotNull
     private String reserva;
 
+    @NotEmpty @NotNull
     private String entidade;
 
+    @NotNull @NotEmpty
     private String justificativa;
 
 
@@ -26,6 +36,7 @@ public class AgendamentoForm {
 
         LocalDateTime dia = LocalDateTime.parse(reserva, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         AgendamentoKey key = new AgendamentoKey(espaco,modalidade);
+        key.setId(Integer.parseInt(Long.toString(Math.round((Math.random()+1)*20))));
 
         Agendamento agendamento = new Agendamento(
                 key,

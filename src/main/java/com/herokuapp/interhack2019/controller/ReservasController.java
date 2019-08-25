@@ -75,7 +75,7 @@ public class ReservasController {
 	}
 
 	@PostMapping("/adicionarAgendamento")
-	public ResponseEntity<AgendamentoDto> cadastrar(@RequestBody AgendamentoForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<AgendamentoDto> cadastrar(@RequestBody @Valid AgendamentoForm form, UriComponentsBuilder uriBuilder) {
 		Agendamento agendamento = form.converter(
 							espacoRepository.findFirstById(form.getIdE()),
 							modalidadeRepository.findFirstById(form.getIdM())
