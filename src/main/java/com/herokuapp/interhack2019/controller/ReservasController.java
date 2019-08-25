@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -83,9 +84,19 @@ public class ReservasController {
 		System.out.println(agendamento.getJustificativa());
 		agendamentoRepository.save(agendamento);
 
-		URI uri = uriBuilder.path("/agendamentos/{id}").buildAndExpand(agendamento.getAgendamentoKey().getId()).toUri();
+		URI uri = uriBuilder.path("/reservas/{id}").buildAndExpand(agendamento.getAgendamentoKey().getId()).toUri();
 		return ResponseEntity.created(uri).body(new AgendamentoDto(agendamento));
 	}
+	@GetMapping("/{id}")
+	public ResponseEntity<List> detalhar(@PathVariable Integer id) {
+		List<Agendamento> agendamento = agendamentoRepository.findByAgendamentoKey_Id(id);
+		if (!agendamento.isEmpty()) {
+			return ResponseEntity.ok(agendamento);
+		}
+
+		return ResponseEntity.notFound().build();
+	}
+
 
 //
 //
