@@ -10,5 +10,10 @@ public class HelloController {
 	public String hello() {
 		return "index";
 	}
+	@RequestMapping("/fim")
+	public String fim(){
+		return "fim";
+	}
 
 }
+
